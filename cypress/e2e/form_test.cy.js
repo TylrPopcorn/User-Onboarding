@@ -1,12 +1,20 @@
+//FAILED FIRST ATTEMPT :/
+
 describe('Form test', () => {
+
+
   beforeEach(() => {
     // cy.visit("http://localhost:1234") //IDK HOW TO GET TO MY SERVER :(
-    // [*********]
+    cy.visit("http://localhost:3000/")
+    //cy.visit("http://google.com")
+
+    const nameInput = () => {
+      cy.get(`[data-test-id="formName"]`);
+    }
+
+
   })
 
-  const nameInput = () => {
-    cy.get("input[name=username]");
-  }
   const emailInput = () => {
     cy.get("input[name=email]");
   }
@@ -29,12 +37,9 @@ describe('Form test', () => {
 
   //Verify that elements exist
   it("proper elements are here", function () {
-    nameInput().should("exist")
-    emailInput().should("exist")
-    passInput().should("exist")
+    const nameInput = cy.get(`[data-test-id="formName"]`);
 
-    tosInput().should("exist")
-    subButn().should("exist")
+    nameInput()
   })
 
   describe("filling out the inputs", function () {

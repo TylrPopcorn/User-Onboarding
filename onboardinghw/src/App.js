@@ -18,7 +18,7 @@ const initialFormErrors = {
   username: "",
   password: "",
   email: "",
-  checked: false,
+  checked: "",
 }
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
   const handleSubmit = function () {
     axios.post("https://reqres.in/api/users", formValues)
       .then(res => {
-        setUsers(res.data)
+        setUsers([...users, res.data])
       })
       .catch(err => { console.log(err) })
   }
@@ -51,14 +51,14 @@ function App() {
 
   return (
     <div className="App">
-      <FORM values={initialFormValues} errors={formErrors} submit={handleSubmit} />
+      <FORM values={formValues} errors={formErrors} submit={handleSubmit} change={handleChange} />
 
-      {users.map(user => {
+      {users.map(user => (
         <div key={user.id}>
           <p>{user.created}</p>
           <p>{user.email}</p>
         </div>
-      })
+      ))
       }
     </div>
   );

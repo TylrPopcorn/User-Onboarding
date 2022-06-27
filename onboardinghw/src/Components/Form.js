@@ -2,7 +2,7 @@ import React from 'react'
 
 const Form = function (props) {
     const { change, submit, errors } = props;
-    const { username, email, password, tos } = props.values;
+    const { username, email, password, checked } = props.values;
 
     const onChange = (e) => {
         const { name, value, checked, type } = e.target;
@@ -25,8 +25,9 @@ const Form = function (props) {
                 <label> Name:
                     <input
                         type="text"
-                        value={""}
+                        value={username}
                         name="username"
+                        data-test-id="formName"
                         onChange={onChange}
                     />
                 </label>
@@ -35,13 +36,14 @@ const Form = function (props) {
                     <input
                         name="email"
                         type="email"
-                        value={"email here"}
+                        value={email}
                         onChange={onChange}
                     />
                 </label>
 
                 <label> Password:
                     <input
+                        value={password}
                         name="password"
                         type="password"
                         onChange={onChange}
@@ -51,8 +53,8 @@ const Form = function (props) {
                 <label> Terms of Service:
                     <input
                         type="checkbox"
-                        name="tos"
-                        checked={tos}
+                        name="checked"
+                        checked={checked}
                         onChange={onChange}
                     />
                 </label>
