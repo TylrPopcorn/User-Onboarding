@@ -25,7 +25,7 @@ const Form = function (props) {
                 <label> Name:
                     <input
                         type="text"
-                        value={"username here"}
+                        value={""}
                         name="username"
                         onChange={onChange}
                     />
@@ -57,7 +57,7 @@ const Form = function (props) {
                     />
                 </label>
 
-                <input type="submit" value={"Create"} />
+                <input name="submit" type="submit" value={"Create"} />
 
             </form>
         </div>
